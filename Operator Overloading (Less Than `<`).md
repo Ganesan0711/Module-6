@@ -1,31 +1,47 @@
+
 # 🐍 Python OOP: Operator Overloading (Less Than `<`)
 
 ## 🎯 AIM
 
-To write a Python program that demonstrates **operator overloading** by overloading the **less than (`<`)** operator using a custom class.
-
----
+To write a Python program that demonstrates **operator overloading** by overloading the less than (`<`) operator using a custom class.
 
 ## 🧠 ALGORITHM
 
-1. **Create Class `A`**:
-   - Define the `__init__()` method to initialize the object with a value `a`.
+1. Create a class named `A`.
+2. Define the `__init__()` constructor to initialize the object with a value `a`.
+3. Define the `__lt__()` method to overload the less than (`<`) operator.
+4. If `self.a < o.a`, return `"ob1 is less than ob2"`.
+5. Otherwise, return `"ob2 is less than ob1"`.
+6. Create two objects named `ob1` and `ob2` with values.
+7. Use `print(ob1 < ob2)` to call the overloaded operator.
+8. Display the result.
 
-2. **Overload the `<` Operator**:
-   - Define the `__lt__()` method with logic:
-     - If `self.a < o.a`, return `"ob1 is less than ob2"`
-     - Else, return `"ob2 is less than ob1"`
+## 💻 PROGRAM
 
-3. **Create Objects**:
-   - Instantiate two objects `ob1` and `ob2` with values.
+```python
+class A:
+    def __init__(self, a):
+        self.a = a
 
-4. **Use `<` Operator**:
-   - Use `print(ob1 < ob2)` to trigger the overloaded behavior.
+    def __lt__(self, o):
+        if self.a < o.a:
+            return "ob1 is less than ob2"
+        else:
+            return "ob2 is less than ob1"
 
----
 
-## 💻 Program
+ob1 = A(10)
+ob2 = A(20)
 
-## Output
+print(ob1 < ob2)
+```
 
-## Result
+## 📤 OUTPUT
+
+```text
+ob1 is less than ob2
+```
+
+## ✅ RESULT
+
+Thus, the Python program demonstrating **operator overloading using the less than (`<`) operator** was executed successfully.
