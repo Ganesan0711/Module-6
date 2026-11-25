@@ -1,35 +1,66 @@
+
 # 🐍 Python OOP: Abstract Class & Method Example
 
 ## 🎯 AIM
-
-To create an **abstract class** named `Shape` with an **abstract method** `calculate_area`, and implement this method in two subclasses: `Rectangle` and `Circle`.
-
----
+To create an abstract class named `Shape` with an abstract method `calculate_area()` and implement this method in two subclasses: `Rectangle` and `Circle`.
 
 ## 🧠 ALGORITHM
+1. Import `ABC` and `abstractmethod` from the `abc` module.
+2. Create an abstract class named `Shape`.
+3. Define an abstract method `calculate_area()` inside the `Shape` class.
+4. Create a subclass named `Rectangle` that inherits from `Shape`.
+5. Initialize length and breadth with default values.
+6. Override the `calculate_area()` method to calculate the rectangle area.
+7. Create another subclass named `Circle` that inherits from `Shape`.
+8. Initialize the radius with a default value.
+9. Override the `calculate_area()` method to calculate the circle area.
+10. Create objects of both subclasses and display their areas.
 
-1. **Import ABC module**:
-   - Use `from abc import ABC, abstractmethod` to define abstract classes and methods.
+## 💻 PROGRAM
 
-2. **Create Abstract Class `Shape`**:
-   - Define an abstract method `calculate_area()` with `@abstractmethod`.
+```python
+from abc import ABC, abstractmethod
+import math
 
-3. **Create Subclass `Rectangle`**:
-   - Set default values for `length` and `breadth`.
-   - Override `calculate_area()` to compute the rectangle area.
+class Shape(ABC):
 
-4. **Create Subclass `Circle`**:
-   - Set default value for `radius`.
-   - Override `calculate_area()` to compute the circle area.
+    @abstractmethod
+    def calculate_area(self):
+        pass
 
-5. **Create Objects & Call Methods**:
-   - Instantiate `Rectangle` and `Circle`.
-   - Call their `calculate_area()` methods.
 
----
+class Rectangle(Shape):
 
-## 💻 Program
+    def __init__(self, length=10, breadth=5):
+        self.length = length
+        self.breadth = breadth
 
-## Output
+    def calculate_area(self):
+        return self.length * self.breadth
 
-## Result
+
+class Circle(Shape):
+
+    def __init__(self, radius=7):
+        self.radius = radius
+
+    def calculate_area(self):
+        return math.pi * self.radius * self.radius
+
+
+r = Rectangle()
+c = Circle()
+
+print("Area of Rectangle:", r.calculate_area())
+print("Area of Circle:", round(c.calculate_area(), 2))
+```
+
+## 📤 OUTPUT
+
+```text
+Area of Rectangle: 50
+Area of Circle: 153.94
+```
+
+## ✅ RESULT
+Thus, the Python program to demonstrate an abstract class and abstract method using the `Shape`, `Rectangle`, and `Circle` classes was executed successfully.
